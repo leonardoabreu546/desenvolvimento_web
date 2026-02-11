@@ -69,9 +69,20 @@ console.log(resultado4);
 console.log(resultado5);
 console.log(resultado6);
 
+// Exercício 4
+
 function multiplosDeCinco() {
     for (var i = 5; i <= 20; i += 5) {
         console.log(i);
     }
 }
 multiplosDeCinco();
+
+// Exercício 5
+
+function soma100() {
+    for (var i = 1; i <= 100; i++) {
+        console.log(i);
+    }
+}
+soma100();

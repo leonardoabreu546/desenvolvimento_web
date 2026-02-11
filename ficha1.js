@@ -68,3 +68,10 @@ console.log(resultado3);
 console.log(resultado4);
 console.log(resultado5);
 console.log(resultado6);
+
+function multiplosDeCinco() {
+    for (var i = 5; i <= 20; i += 5) {
+        console.log(i);
+    }
+}
+multiplosDeCinco();

@@ -32,3 +32,39 @@ var mes = nomeDoMes(13);
 console.log(mes);
 
 
+// Exercício 3
+
+function calculadora(a, b, operador) {
+    if (operador=="+") {
+        return a + b;
+    }
+    else if (operador=="-") {
+        return a - b;
+    }
+    else if (operador=="*") {
+        return a * b;
+    }
+    else if (operador=="/") {
+        if (b != 0) {
+            return a / b;
+        } else {
+            return "Erro: Divisão por zero";
+        }
+    } else {
+        return "Operação inválida";
+    }
+}
+
+var resultado1 = calculadora(10, 5, "+");
+var resultado2 = calculadora(10, 5, "-");
+var resultado3 = calculadora(10, 5, "*");
+var resultado4 = calculadora(10, 5, "/");
+var resultado5 = calculadora(10, 0, "/");
+var resultado6 = calculadora(10, 5, "s");
+
+console.log(resultado1);
+console.log(resultado2);
+console.log(resultado3);
+console.log(resultado4);
+console.log(resultado5);
+console.log(resultado6);

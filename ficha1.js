@@ -72,6 +72,7 @@ console.log(resultado6);
 // Exercício 4
 
 function multiplosDeCinco() {
+    console.log("Múltiplos de 5:");
     for (var i = 5; i <= 20; i += 5) {
         console.log(i);
     }
@@ -81,8 +82,21 @@ multiplosDeCinco();
 // Exercício 5
 
 function soma100() {
+    console.log("Números de 1 a 100:");
     for (var i = 1; i <= 100; i++) {
         console.log(i);
     }
 }
 soma100();
+
+// Exercício 6
+
+function fatorial(n) {
+    resultado=1;
+    while (n > 0) {
+        resultado*=n;
+        n--;
+    }
+    return resultado;
+}
+console.log("Resultado: " + fatorial(5));

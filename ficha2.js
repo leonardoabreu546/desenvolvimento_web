@@ -1,3 +1,5 @@
+//Exercício 1
+
 function calcularIMC(peso, altura) {
 
     imc = peso / (altura * altura);
@@ -21,3 +23,11 @@ function calcularIMC(peso, altura) {
 
 var imc1 = calcularIMC(70, 1.75);
 console.log(imc1);
+
+//Exercício 2
+
+function inverterTexto(texto) {
+    return texto.split("").reverse().join("");
+}
+var texto = inverterTexto("Hello, World!");
+console.log(texto);

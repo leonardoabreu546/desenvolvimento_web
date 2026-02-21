@@ -82,10 +82,12 @@ multiplosDeCinco();
 // Exercício 5
 
 function soma100() {
-    console.log("Números de 1 a 100:");
+    console.log("Soma dos números de 1 a 100:");
+    var soma = 0;
     for (var i = 1; i <= 100; i++) {
-        console.log(i);
+        soma += i;
     }
+    console.log(soma);
 }
 soma100();
 
@@ -100,3 +102,8 @@ function fatorial(n) {
     return resultado;
 }
 console.log("Resultado: " + fatorial(5));
+
+// Exercício 7
+
+function estatísticas(numeros) {
+}

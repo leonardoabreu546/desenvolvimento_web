@@ -21,7 +21,7 @@ function calcularIMC(peso, altura) {
     }
 }
 
-var imc1 = calcularIMC(70, 1.75);
+var imc1 = calcularIMC(0, 1.75);
 console.log(imc1);
 
 //Exercício 2
@@ -31,3 +31,24 @@ function inverterTexto(texto) {
 }
 var texto = inverterTexto("Hello, World!");
 console.log(texto);
+
+//Exercício 3
+
+function contarVogais(frase) {
+    frase = frase.toLowerCase();
+    
+    const vogais = "aeiou";
+    
+    let contador = 0;
+
+    for (let letra of frase) {
+        if (vogais.includes(letra)) {
+            contador++;
+        }
+    }
+
+    return "A frase tem " + contador + " vogais.";
+}
+
+console.log(contarVogais("Olá Mundo")); 
+

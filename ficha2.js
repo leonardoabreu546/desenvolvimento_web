@@ -21,7 +21,7 @@ function calcularIMC(peso, altura) {
     }
 }
 
-var imc1 = calcularIMC(0, 1.75);
+const imc1 = calcularIMC(0, 1.75);
 console.log(imc1);
 
 //Exercício 2
@@ -29,7 +29,7 @@ console.log(imc1);
 function inverterTexto(texto) {
     return texto.split("").reverse().join("");
 }
-var texto = inverterTexto("Hello, World!");
+let texto = inverterTexto("Hello, World!");
 console.log(texto);
 
 //Exercício 3
@@ -66,3 +66,14 @@ function contarLetras(frase, letra) {
 }
 
 console.log(contarLetras("Olá Mundo", "o")); 
+
+//Exercício 5
+
+function tempoTrabalho(horaEntrada, horaSaida) {
+    if (horaEntrada < 8 || horaSaida > 18 || horaEntrada >= horaSaida) {
+        return "Horas inválidas.";
+    }
+
+    const totalHoras = horaSaida - horaEntrada;
+    return "O tempo total de trabalho é de " + totalHoras.toFixed(2) + " horas.";
+}

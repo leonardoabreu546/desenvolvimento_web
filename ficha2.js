@@ -52,3 +52,17 @@ function contarVogais(frase) {
 
 console.log(contarVogais("Olá Mundo")); 
 
+//Exercício 4
+
+function contarLetras(frase, letra) {
+    frase = frase.toLowerCase();
+    let contador = 0;
+    for (let i = 0; i < frase.length; i++) {
+        if (frase[i] === letra.toLowerCase()) {
+            contador++;
+        }
+    }
+    return "A letra '" + letra + "' aparece " + contador + " vezes na frase.";
+}
+
+console.log(contarLetras("Olá Mundo", "o")); 

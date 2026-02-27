@@ -70,10 +70,20 @@ console.log(contarLetras("Olá Mundo", "o"));
 //Exercício 5
 
 function tempoTrabalho(horaEntrada, horaSaida) {
-    if (horaEntrada < 8 || horaSaida > 18 || horaEntrada >= horaSaida) {
+
+    const [h1, m1] = horaEntrada.split(":").map(Number);
+    const [h2, m2] = horaSaida.split(":").map(Number);
+
+    const entrada = h1 + m1 / 60;
+    const saida = h2 + m2 / 60;
+
+    if (entrada < 8 || saida > 18 || entrada >= saida) {
         return "Horas inválidas.";
     }
 
-    const totalHoras = horaSaida - horaEntrada;
+    const totalHoras = saida - entrada;
+
     return "O tempo total de trabalho é de " + totalHoras.toFixed(2) + " horas.";
 }
+
+console.log(tempoTrabalho("9:00", "17:00"));

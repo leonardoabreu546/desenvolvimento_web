@@ -101,3 +101,17 @@ function desenharRetangulo(largura, altura) {
 }
 
 desenharRetangulo(5, 3);
+
+//Exercício 7
+
+function desenharTriangulo(altura) {
+    for (let i = 1; i <= altura; i++) {
+        let linha = "";
+        for (let j = 0; j < i; j++) {
+            linha += "*";
+        }
+        console.log(linha);
+    }
+}
+
+desenharTriangulo(5);

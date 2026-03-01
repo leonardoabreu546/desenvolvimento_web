@@ -87,3 +87,17 @@ function tempoTrabalho(horaEntrada, horaSaida) {
 }
 
 console.log(tempoTrabalho("9:00", "17:00"));
+
+//Exercício 6
+
+function desenharRetangulo(largura, altura) {
+    for (let i = 0; i < altura; i++) {
+        let linha = "";
+        for (let j = 0; j < largura; j++) {
+            linha += "*";
+        }
+        console.log(linha);
+    }
+}
+
+desenharRetangulo(5, 3);

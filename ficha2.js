@@ -115,3 +115,4 @@ function desenharTriangulo(altura) {
 }
 
 desenharTriangulo(5);
+

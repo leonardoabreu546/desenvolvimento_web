@@ -16,4 +16,3 @@ numbers.push(function() {
 for (let i = 0; i < numbers.length; i++) {
     numbers[i]();
 }
-

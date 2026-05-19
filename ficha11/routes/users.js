@@ -16,4 +16,9 @@ router.post('/', authMiddleware, async (req, res) => {
     });
 });
 
+router.delete('/:id', authMiddleware, async (req, res) => {
+    await User.destroy({ where: { id: req.params.id } });
+    res.json({ message: "Utilizador removido com sucesso" });
+});
+
 module.exports = router;

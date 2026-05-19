@@ -1,0 +1,27 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<h2>Bem-vindo à Área Protegida</h2>
+<button onclick="listarUsers()">Ver Lista de Utilizadores</button>
+<button onclick="logout()" style="color: red;">Sair</button>
+<div id="lista"></div>
+
+<script>
+    function listarUsers() {
+        const token = localStorage.getItem('token'); // VAI BUSCAR O TOKEN
+
+        axios.get('http://localhost:3000/users', {
+            headers: { 'Authorization': `Bearer ${token}` } // ENVIA O TOKEN
+        })
+        .then(res => {
+            document.getElementById('lista').innerText = JSON.stringify(res.data, null, 2);
+        })
+        .catch(err => {
+            alert("Não tens permissão ou a sessão expirou!");
+            window.location.href = 'login.html';
+        });
+    }
+
+    function logout() {
+        localStorage.removeItem('token'); // APAGA O TOKEN
+        window.location.href = 'login.html';
+    }
+</script>

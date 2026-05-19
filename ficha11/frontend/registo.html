@@ -1,0 +1,20 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<h2>Criar Conta</h2>
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Senha">
+<button onclick="registar()">Registar</button>
+<a href="login.html">Já tenho conta</a>
+
+<script>
+    function registar() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        axios.post('http://localhost:3000/auth/signup', { email, password })
+            .then(res => {
+                alert("Conta criada! Agora faz login.");
+                window.location.href = 'login.html'; // Redireciona para o login
+            })
+            .catch(err => alert("Erro ao registar"));
+    }
+</script>

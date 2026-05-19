@@ -2,14 +2,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors'); // 1. IMPORTAÇÃO DO CORS
 
-// 1. Importações
+// 1. Outras Importações
 const db = require('./config/db');
 const User = require('./models/user');
 const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 
-var app = express(); // Primeiro criamos o app
+var app = express();
 
 // 2. Sincronizar a BD
 db.sync()
@@ -17,6 +18,7 @@ db.sync()
     .catch(err => console.log('Erro ao sincronizar: ' + err));
 
 // 3. Middlewares padrão
+app.use(cors()); // 2. ATIVAÇÃO DO CORS (Deve vir antes das rotas)
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

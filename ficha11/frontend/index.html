@@ -1,27 +1,87 @@
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f4f7f6;
+        padding: 40px;
+        margin: 0;
+    }
+    .dashboard {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .actions {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+    }
+    button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: opacity 0.2s;
+    }
+    button:hover { opacity: 0.8; }
+    .btn-list { background-color: #007bff; color: white; }
+    .btn-logout { background-color: #dc3545; color: white; }
+    #lista {
+        background: #f8f9fa;
+        padding: 15px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        white-space: pre-wrap; /* Mantém a formatação do JSON */
+        font-family: 'Courier New', Courier, monospace;
+        color: #444;
+        min-height: 50px;
+    }
+    h2 { color: #333; }
+</style>
+
+<div class="dashboard">
+    <h2>Bem-vindo à Área Protegida</h2>
+    
+    <div class="actions">
+        <button class="btn-list" onclick="listarUsers()">Ver Lista de Utilizadores</button>
+        <button class="btn-logout" onclick="logout()">Sair</button>
+    </div>
+
+    <div id="lista">Clique no botão para carregar os dados...</div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<h2>Bem-vindo à Área Protegida</h2>
-<button onclick="listarUsers()">Ver Lista de Utilizadores</button>
-<button onclick="logout()" style="color: red;">Sair</button>
-<div id="lista"></div>
 
 <script>
     function listarUsers() {
-        const token = localStorage.getItem('token'); // VAI BUSCAR O TOKEN
+        const token = localStorage.getItem('token'); 
+
+        // Se nem sequer houver token, mandamos logo para o login
+        if (!token) {
+            alert("Sessão não encontrada. Por favor, faça login.");
+            window.location.href = 'login.html';
+            return;
+        }
 
         axios.get('http://localhost:3000/users', {
-            headers: { 'Authorization': `Bearer ${token}` } // ENVIA O TOKEN
+            headers: { 'Authorization': `Bearer ${token}` } 
         })
         .then(res => {
+            // Exibe o JSON formatado dentro da div #lista
             document.getElementById('lista').innerText = JSON.stringify(res.data, null, 2);
         })
         .catch(err => {
+            console.error(err);
             alert("Não tens permissão ou a sessão expirou!");
             window.location.href = 'login.html';
         });
     }
 
     function logout() {
-        localStorage.removeItem('token'); // APAGA O TOKEN
-        window.location.href = 'login.html';
+        localStorage.removeItem('token'); // Limpa o "baú"
+        window.location.href = 'login.html'; // Tchau!
     }
 </script>

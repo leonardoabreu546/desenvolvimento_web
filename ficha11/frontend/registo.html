@@ -1,20 +1,72 @@
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<h2>Criar Conta</h2>
-<input type="email" id="email" placeholder="Email">
-<input type="password" id="password" placeholder="Senha">
-<button onclick="registar()">Registar</button>
-<a href="login.html">Já tenho conta</a>
-
-<script>
-    function registar() {
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        axios.post('http://localhost:3000/auth/signup', { email, password })
-            .then(res => {
-                alert("Conta criada! Agora faz login.");
-                window.location.href = 'login.html'; // Redireciona para o login
-            })
-            .catch(err => alert("Erro ao registar"));
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
     }
-</script>
+    .container {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        width: 300px;
+        text-align: center;
+    }
+    h2 { color: #333; margin-bottom: 1.5rem; }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box; /* Garante que o padding não aumenta a largura */
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+    }
+    button:hover { background-color: #218838; }
+    a {
+        display: block;
+        margin-top: 15px;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    a:hover { text-decoration: underline; }
+</style>
+
+<div class="container">
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <h2>Criar Conta</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Senha">
+    <button onclick="registar()">Registar</button>
+    <a href="login.html">Já tenho conta</a>
+
+    <script>
+        function registar() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            axios.post('http://localhost:3000/auth/signup', { email, password })
+                .then(res => {
+                    alert("Conta criada! Agora faz login.");
+                    window.location.href = 'login.html'; // Redireciona para o login
+                })
+                .catch(err => alert("Erro ao registar"));
+        }
+    </script>
+</div>

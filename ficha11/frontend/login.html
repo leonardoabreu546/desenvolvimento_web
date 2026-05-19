@@ -10,13 +10,27 @@
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
+        // 1. Verificação de segurança: não deixa avançar se estiver vazio
+        if (!email || !password) {
+            alert("Por favor, preencha o email e a senha.");
+            return; // Interrompe a execução aqui
+        }
+
         axios.post('http://localhost:3000/auth/login', { email, password })
             .then(res => {
-                // GUARDA O TOKEN
-                localStorage.setItem('token', res.data.token);
-                // REDIRECIONA
-                window.location.href = 'index.html';
+                // 2. Só guarda e redireciona se o servidor enviou mesmo um token
+                if (res.data.token) {
+                    localStorage.setItem('token', res.data.token);
+                    alert("Login com sucesso!");
+                    window.location.href = 'index.html';
+                } else {
+                    alert("Erro: O servidor não enviou um token válido.");
+                }
             })
-            .catch(err => alert("Credenciais erradas!"));
+            .catch(err => {
+                // 3. Se as credenciais estiverem erradas (Erro 401 ou 400), cai aqui
+                console.error(err);
+                alert("Email ou senha incorretos!");
+            });
     }
 </script>

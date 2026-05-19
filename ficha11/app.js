@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors'); // 1. IMPORTAÇÃO DO CORS
 
+
 // 1. Outras Importações
 const db = require('./config/db');
 const User = require('./models/user');
@@ -20,6 +21,7 @@ db.sync()
 // 3. Middlewares padrão
 app.use(cors()); // 2. ATIVAÇÃO DO CORS (Deve vir antes das rotas)
 app.use(logger('dev'));
+app.use(express.static(path.join(__dirname, 'frontend')));app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
